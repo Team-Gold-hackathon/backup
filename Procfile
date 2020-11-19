@@ -1,1 +1,1 @@
-web: gunicorn medicartapp.wsgi --log-file -
+web: gunicorn medicart.wsgi --log-file -
