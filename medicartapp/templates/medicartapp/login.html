@@ -236,12 +236,8 @@ input[type="password"]:focus {
 	<body>
 		<div id="container">
 		   <header>LOGIN</header>
-<<<<<<< HEAD
 		   <form method="POST" action="">
 			{% csrf_token %}
-=======
-		   <form method="post">
->>>>>>> 5fd4f4540226f9260ef6b82b0efb394c7bef3cad
 			  <fieldset>
 				 <br/>
 				 <input type="text" name="username" id="username" placeholder="Username" required autofocus>
@@ -256,17 +252,10 @@ input[type="password"]:focus {
 		   </form>
 		   <div class="">
 			<div class="" style="padding-left: 50px;">
-<<<<<<< HEAD
 				Don't have an account?<a href="{% url 'register' %}" class="ml-2" style="font-size: 1.1rem; text-decoration: none; color: blue;">Sign Up</a>
 			</div>
 			<div class="" style="padding-top: 20px; padding-left: 50px;">
 				Forget your password?<a href="{% url 'reset_password' %}" class="ml-2" style="font-size: 1.1rem; text-decoration: none; color: blue;">Reset your password</a>
-=======
-				Don't have an account?<a href="{% url 'login' %}" class="ml-2" style="font-size: 1.1rem; text-decoration: none; color: blue;">Sign Up</a>
-			</div>
-			<div class="" style="padding-top: 20px; padding-left: 50px;">
-				Forget your password?<a href="{% url 'login' %}" class="ml-2" style="font-size: 1.1rem; text-decoration: none; color: blue;">Reset your password</a>
->>>>>>> 5fd4f4540226f9260ef6b82b0efb394c7bef3cad
 				
 			</div>
 		</div>
