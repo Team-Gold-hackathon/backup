@@ -3,6 +3,7 @@ from . import views
 from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     #path('', TemplateView.as_view(template_name='index.html')), 
     path('', views.home, name='home'),
@@ -12,6 +13,8 @@ urlpatterns = [
     # path('account/', views.accountSettings, name="account"),
 
     path('products/', views.products, name="products"),
+
+    path('products/personal_care/', views.PersonalCare, name="personalcare"),
 
     path('reset_password/',
     auth_views.PasswordResetView.as_view(template_name="check/password_reset.html"),
@@ -30,3 +33,4 @@ urlpatterns = [
         name="password_reset_complete"),
 
 ]
+

@@ -51,7 +51,15 @@ def logoutUser(request):
 #@allowed_users(allowed_roles=['admin', 'pharmacy'])
 def products(request):
     products=Product.objects.all()
-    return render(request, 'medicartapp/products.html',{'products':products})
+    context ={'products': products}
+    return render(request, 'medicartapp/products.html',context)
+
+#@login_required(login_url='login')
+#@allowed_users(allowed_roles=['admin', 'pharmacy'])
+def PersonalCare(request):
+    products=Product.objects.all()
+    context ={'products': products}
+    return render(request, 'medicartapp/products.html',context)
 
 # @login_required(login_url='login')
 # @allowed_users(allowed_roles=['admin'])

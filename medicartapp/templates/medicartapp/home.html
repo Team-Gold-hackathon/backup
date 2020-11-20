@@ -1,11 +1,312 @@
-{% extends 'medicartapp/layout.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+ 
+}
 
-{% block content %}
+.topnav {
+  overflow: hidden;
+  background-color: #3960C6;
+}
 
-    <div class="container">
-        <div  class="row">
-            homepage
-        </div>
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color:  #37c2bb;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.howw{
+    padding-bottom: 40px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    width: 100vw;
+   
+}
+
+.columnn{
+    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 30vw;
+
+ 
+}
+@media screen and (max-width: 600px) {
+    .row{
+        display: block;
+        justify-content: center;
+        align-self: center;
+        text-align: center;
+        
+    }
+
+    .columnn{
+        padding-top: 30px;
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:  #3960C6;
+  color: white;
+  text-align: center;
+}
+
+
+
+
+
+
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 20%;
+  padding: 0 10px;
+  margin-left: 40px;
+}
+
+img{
+    width: 120px;
+}
+
+.arrow{
+   
+    padding-left: 10px;
+    width: 40px;
+}
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* responsive footer fix by Aalaap Ghag 
+This is where the magic happens */
+@media (max-width: 767px) {
+
+  footer  {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.container {
+  max-width: 940px;
+}
+
+/* Responsive columns */
+
+
+  @media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #fff;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="{% url 'login' %}">Log In</a>
+  <a href="{% url 'register' %}">Sign Up</a>
+  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div style="padding-left:16px">
+  <!-- Header -->
+<header class="w3-container w3-white w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin ">GET YOUR MEDICATIONS, FAST.</h1>
+     <div class="w3-row w3-section">
+    <input type="text" placeholder="Search by Pharmacy, Drug or Location" style="width:20%" ></input>
+  </div>
+    
+    <button class="w3-button w3-padding-large w3-large w3-margin-top" style="background-color: #3960C6; color: #fff;"> <a href="{% url 'register' %}"></a> Get Started</button>
+  </header>
+</div>
+
+
+
+
+  
+
+
+ <!-- First Grid -->
+ <div  class="howw">
+ <h1 class="w3-container w3-white w3-center"  >HOW IT WORKS.</h1>
+ <div class="how">
+ <div class="row">
+   <div class="columnn">
+     <div class="cardd">
+      <img src="{% static 'images/map.png' %}" alt="" style="width: 60%; height: 60%; " >
+      <p  >Find Medications anywhere  </p>
+     </div>
+   </div>
+ 
+   <div class="columnn">
+       <div class="cardd">
+        <img src=" {% static 'images/carbon.png' %}" alt=""  style="width: 60%; height: 60%;">
+        <p  >Add to your Cart </p>
+       </div>
+     </div>
+   
+     <div class="columnn">
+       <div class="cardd">
+        <img src="  {% static  'images/Vector.png' %} " alt=""  style="width: 60%; height: 60%;">
+        <p >  Receive it at your doorstep</p>
+       </div>
+     </div>
     </div>
 
-{% endblock %}
+
+
+
+    
+
+
+
+   
+</div>
+<h1 class="w3-container w3-white w3-center" style="padding-top: 10%;">CATEGORIES</h1>
+
+<div class="row" style="padding-bottom: 10%;">
+  <div class="column">
+    <div class="card">
+     <img src="{% static 'images/baby.png'  %}" alt="" >
+     <p>Baby and Child Health <a href=""><img src="{% static 'images//arrow.png' %}" class="arrow" alt=""></a> </p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+        <img src="{% static 'images/drug.png' %}" alt="" >
+      <p>Treatments and Medicaments <a href=""><img src="{% static 'images//arrow.png' %}" class="arrow" alt=""></a> </p>
+      
+    </div>
+  </div>
+
+  
+  <div class="column">
+    <div class="card">
+        <img height="120px" src="{% static 'images/Action.png' %}" alt="" >
+        <p>Medical Supplies <a href=""><img src="{% static 'images//arrow.png' %}" class="arrow" alt=""></a> </p>
+      
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+        <img src="{% static 'images//plaster.png' %}" alt="" >
+        <p>Personal Care <a href="{% url 'personalcare' %}"><img src="{% static 'images//arrow.png' %}" class="arrow" alt=""></a> </p>
+    
+    </div>
+  </div>
+</div>
+
+<footer class="footer" style="height: 40px">Medicart</footer>
+
+
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+
+
+
+
+</body>
+</html>

@@ -33,17 +33,41 @@ class Product(models.Model):
     description = models.CharField(max_length=200, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     #tags = models.ManyToManyField(Tag)
+    image = models.ImageField(null=True, blank=True) 
 
     def __str__(self):
         return self.name
 
+    @property
+    def imageURL(self):
+        try:
+            url =self.image.url
+        except:
+            url = ''
+        return url
+
 class Order(models.Model):
-    STATUS =(
-        ('Pending', 'Pending'),
-        ('Out-for-delivery', 'Out-for-delivery'),
-        ('delivered', 'Delivered'),
-    )
-    customer= models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
+    customer= models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL, blank=True)
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
     date_created= models.DateTimeField(auto_now_add=True, null=True)
-    status= models.CharField(max_length=200, null=True, choices=STATUS)
+    complete = models.BooleanField(default=False, null=True, blank=False)
+    transaction_id = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return str(self.id)
+
+class OrderItem(models.Model):
+    product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
+    order = models.ForeignKey(Order, null=True, on_delete=models.SET_NULL)
+    quantity = models.IntegerField(default=0, null=True, blank=True)
+
+
+class ShippingAddress(models.Model):
+    customer=models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
+    Order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    address = models.CharField(max_length=200, null=False)
+    city  = models.CharField(max_length=200, null=False)
+    state  = models.CharField(max_length=200, null=False)
+    
+    def __str__(self):
+        return self.address
