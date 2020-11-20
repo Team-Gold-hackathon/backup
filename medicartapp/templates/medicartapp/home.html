@@ -10,6 +10,8 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+ 
 }
 
 .topnav {
@@ -103,7 +105,15 @@ body {
 
 
 
-
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:  #3960C6;
+  color: white;
+  text-align: center;
+}
 
 
 
@@ -138,6 +148,21 @@ img{
   clear: both;
 }
 
+
+/* responsive footer fix by Aalaap Ghag 
+This is where the magic happens */
+@media (max-width: 767px) {
+
+  footer  {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.container {
+  max-width: 940px;
+}
+
 /* Responsive columns */
 
 
@@ -165,8 +190,8 @@ img{
 
 <div class="topnav" id="myTopnav">
   <a href="#home" class="active">Home</a>
-  <a href="#">Log In</a>
-  <a href="#">Sign Up</a>
+  <a href="login.html">Log In</a>
+  <a href="register.html">Sign Up</a>
   
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -229,7 +254,7 @@ img{
 </div>
 <h1 class="w3-container w3-white w3-center" style="padding-top: 10%;">CATEGORIES</h1>
 
-<div class="row">
+<div class="row" style="padding-bottom: 10%;">
   <div class="column">
     <div class="card">
      <img src="/backup/medicartapp/static/images/baby.png" alt="" >
@@ -261,6 +286,12 @@ img{
     
     </div>
   </div>
+</div>
+
+<footer class="footer" style="height: 40px">Medicart</footer>
+
+
+
 
 <script>
 function myFunction() {
@@ -272,6 +303,9 @@ function myFunction() {
   }
 }
 </script>
+
+
+
 
 </body>
 </html>
